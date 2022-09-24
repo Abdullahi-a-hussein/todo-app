@@ -1,1 +1,47 @@
-  
+  {% extends 'header.html' %}
+  {% block content %}
+        <div class="left-content col">
+            <div class="featured">
+
+                <div class="line1 today col">
+                    <div class="today-date circular col">
+                        <div class="current-date">
+                            <p class="small-text">{{ today }}</p>
+                        </div>
+                    </div>
+                    <p class="count-text feature-count col">0</p>
+                    <p class="feature-text">Today</p>
+                </div>
+                <div class="line1 scheudule col">
+                    <div class="col circular scheduled-circ">
+                        <i class="fa-regular fa-rectangle-list  interior"></i>
+                    </div>
+                    <p class="count-text feature-count col">0</p>
+                    <p class="feature-text">Scheduled</p>
+                </div>
+                <div class="line2 all">
+                    <div class="all-circ col circular">
+                        <i class="fa-solid fa-inbox interior"></i>
+                    </div>
+                    <p class="count-text feature-count col">0</p>
+                    <p class="feature-text all-text">All</p>
+                </div>
+            </div>
+            <div class="reminder-lists">
+                <p class="reminder-list-header faded">My Lists</p>
+                <div class="reminder-list">
+                    <div class="reminder-icon-list circular col">
+                        <i class="fa-solid fa-list interior"></i> 
+                    </div>
+                    <p class="list-content col">Grocery</p>
+                    <p class="list-content count-text faded col">0</p>
+                </div>
+
+            </div>
+            <div class="add-list">
+                <p><i class="fa-solid fa-circle-plus"></i> Add list</p>
+            </div>
+        </div>
+        <div class="right-content col">
+        </div>
+  {% endblock %}
