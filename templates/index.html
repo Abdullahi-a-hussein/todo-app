@@ -2,7 +2,7 @@
   {% block content %}
         <div class="left-content col">
             <div class="featured">
-                <a href="">
+                <a href="{{ url_for('today') }}">
                     <div class="line1 today col">
                         <div class="today-date circular col">
                             <div class="current-date">
@@ -51,6 +51,8 @@
             </a>
         </div>
         <div class="right-content col">
-            
+            {% block right %}
+
+            {% endblock %}
         </div>
   {% endblock %}
