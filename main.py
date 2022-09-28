@@ -10,16 +10,40 @@ from datetime import datetime
 # App initialization
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'Assddk8hsMt3hhy'
+
+
 TODAY = datetime.today().strftime('%d')
+
+
+# ---------------------------------- Database Tables Set up ------------------------------------ #
+CATEGORY = [{'name': 'Grocery', 'color': 'blue'}, {'name': 'Study', 'color': 'red'}]
+
+
 
 @app.route('/')
 def home():
-    return render_template('index.html', today=TODAY)
+    return render_template('index.html', today=TODAY, category=CATEGORY)
 
 @app.route('/today')
 def today():
-    return render_template('today.html', today=TODAY)
+    return render_template('today.html', today=TODAY, category=CATEGORY)
 
+@app.route('/scheduled')
+def scheduled():
+    return render_template('scheduled.html', today=TODAY, category=CATEGORY)
+
+@app.route('/all')
+def all():
+    return render_template('all.html', today=TODAY, category=CATEGORY)
+@app.route('/add-list', methods=['GET', 'POST'])
+def add_list():
+    if request.method == 'POST':
+        name = request.form.get('name')
+        color = request.form.get('color')
+        CATEGORY.append({'name': name, 'color': color})
+        return redirect(url_for('home'))
+        
+ 
 
 if __name__ == "__main__":
     app.run(debug=True)

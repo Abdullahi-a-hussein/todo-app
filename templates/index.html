@@ -13,7 +13,7 @@
                         <p class="feature-text">Today</p>
                     </div>
                 </a>
-                <a href="">
+                <a href="{{ url_for('scheduled') }}">
                     <div class="line1 scheudule col">
                         <div class="col circular scheduled-circ">
                             <i class="fa-regular fa-rectangle-list interior"></i>
@@ -22,7 +22,7 @@
                         <p class="feature-text">Scheduled</p>
                     </div>
                 </a>
-                <a href="">
+                <a href="{{ url_for('all') }}">
                 <div class="line2 all">
                     <div class="all-circ col circular">
                         <i class="fa-solid fa-inbox interior"></i>
@@ -34,21 +34,64 @@
             </div>
             <div class="reminder-lists">
                 <p class="reminder-list-header faded">My Lists</p>
+
+                {% for item in category %}
                 <a href="">
                     <div class="reminder-list">
-                        <div class="reminder-icon-list circular col">
+                        <div class="reminder-icon-list circular col {{ item['color'] }}-bg">
                             <i class="fa-solid fa-list interior"></i> 
                         </div>
-                        <p class="list-content col">Grocery</p>
+                        <p class="list-content col">{{ item['name'] }}</p>
                         <p class="list-content count-text faded col">0</p>
                     </div>
                 </a>
+                {% endfor %}
             </div>
-            <a href="">
-                <div class="add-list">
+                <button class="add-list" onclick="document.getElementById('id01').style.display='block'">
                     <p><i class="fa-solid fa-circle-plus"></i> Add list</p>
+                </button>
+                    <!-- The Modal (contains the Sign Up form) -->
+                    <div id="id01" class="modal">
+                        <!-- <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">times;</span> -->
+                        <form class="modal-content" action="{{ url_for('add_list') }}" method="post">
+                        <div class="container">
+                            <p class="modal-p">New List</p>
+                            <div class='form-field'>
+                                <label  for="email">Name: </label>
+                                <input  type="text" name="name" required>
+                            </div>
+                            <div class='form-field'>
+                            <label  for="color">color: </label>
+                            <select  name="color" id="colors">
+                                <option value="red">red</option>
+                                <option value="orange">orange</option>
+                                <option value="yellow">yellow</option>
+                                <option value="green">green</option>
+                                <option value="blue" selected>blue</option>
+                                <option value="pink">pink</option>
+                                <option value="brown">brown</option>
+                            </select>
+                        </div >
+                            <hr class="divider-hr">
+                            <div class="clearfix">
+                                <button type="button" onclick="document.getElementById('id01').style.display='none'" class=" btn-sm cancelbtn">Cancel</button>
+                                <button type="submit" class="btn-sm add">Add</button>
+                            </div>
+                
+                        </div>
+                        </form>
+                    </div>
+
+                <div id="id02" class="create-event">
+                    <form action="" class="event-form" method="post">
+                        <input type="text" name="event" placeholder="activity name" required>
+                        <div class="event-specific">
+                            <input type="date" name="date">
+                            <input type="time" name="time">
+                        </div>
+                    </form>
                 </div>
-            </a>
+
         </div>
         <div class="right-content col">
             {% block right %}

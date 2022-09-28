@@ -24,8 +24,8 @@
     /* Font used */
     --sanfont: 'IBM Plex Sans', sans-serif;
     --seriffont: "IBM Plex Serif", serif;
-
 }
+
 a:any-link {
     text-decoration: none;
     color: var(--darkgrey);
@@ -38,10 +38,16 @@ body {
     color: var(--darkgrey);
 }
 
+button.add-list {
+    border: none;
+}
+
 .col {
     display: inline-block;
     vertical-align: top;
 }
+
+
 
 nav {
     margin-bottom: 20px;
@@ -156,6 +162,32 @@ nav {
     margin-left: 3px;
 }
 
+.orange-bg {
+    background-color: var(--orange)
+}
+
+.yellow-bg {
+    background-color: var(--yellow);
+}
+
+.green-bg {
+    background-color: var(--green);
+}
+
+.pink-bg {
+    background-color: var(--pink);
+}
+
+.brown-bg {
+    background-color: var(--brown);
+}
+.blue-bg {
+    background-color: var(--lightblue);
+}
+.red-bg {
+    background-color: var(--lightred);
+}
+
 .reminder-list-header {
     font-size: 12px;
     font-weight: 500;
@@ -165,8 +197,6 @@ nav {
 }
 
 .reminder-icon-list{
-    background-color: var(--lightblue);
-    color: var(--right-bg);
     margin-right: 5px;
 }
 .faded {
@@ -206,7 +236,96 @@ nav {
     font-weight: bold;
 }
 
-.today-view {
+.blue {
     color: var(--lightblue);
+}
+
+.red {
+    color: var(--lightred);
+}
+
+.darkgrey {
+    color: var(--darkgrey);
+}
+
+
+/* Add List  */
+
+
+.modal {
+    display: none; /* Hidden by default */
+    z-index: 1;
+    position: absolute;
+    background-color: var(--lightgrey2);
+    width: 486px;
+    height: 184px;
+    margin: auto 40vh;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.modal-p {
+    color: var(--darkgrey);
+    font-weight: bold;
+    margin-bottom: 17px;
+    letter-spacing: 0.8px;
+}
+
+
+.form-field {
+    display: block;
+    margin-bottom: 17px;
+}
+
+input, select {
+    margin-left: 20px;
+}
+
+input[type=text]{
+    width: 80%;
+    height: 25px;
+}
+
+.divider-hr {
+   margin-top: 25px;
+   margin-bottom: 20px; 
+}
+
+
+.clearfix {
+    margin-left: 60%;
+}
+
+
+.btn-sm {
+    width: 60px;
+    padding: 2px;
+    margin: auto 10px;
+    border-radius: 10px;
+    box-shadow: none;
+}
+
+button:hover {
+    opacity: 0.8;
+  }
+
+
+.add-event {
+    border: none;
+    background-color: var(--right-bg);
+}
+
+.create-event {
+    display: none; /* Hidden by default */
+    z-index: 1;
+    position: absolute;
+    width: 486px;
+    height: 184px;
+    margin-left: 40vh;
+    margin-right: 40vh;
+    margin-bottom: 80vh;
+    padding: 15px;
 }
 
